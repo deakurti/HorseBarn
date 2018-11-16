@@ -6,9 +6,9 @@ public class Runner {
 
         Horse[] horses = new Horse[6]; //array of 6 spaces//
 
-        horse[1] = horse1;
-        house[3] = horse2;
-        horse[5] = horse3;
+        horses[1] = horse1;
+        houses[3] = horse2;
+        horses[5] = horse3;
         HorseBarn barn = new HorseBarn(horses);
 
         System.out.println(barn);
