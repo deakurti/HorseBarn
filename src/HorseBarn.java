@@ -1,25 +1,24 @@
 public class HorseBarn {
     private Horse[] spaces;
 
-    public int findHorseSpace(String name) {
-        for (int i = 0; i < this.spaces.length; i++) {
-            if (this.spaces[i] != null && name.equals(this.spaces[i].getName())) {
-            }
-            else {
-                return -1;
+    public HorseBarn(Horse[] spaces) {
+        this.spaces = spaces;
+    }
+
+    public void findHorseSpace(String name) {
+        for (int i = 0; i < this.spaces.length - 1; i++) {
+            if (this.spaces[i] != null && this.spaces[i].getName().equals(name)) {
+                return i;
             }
         }
+        return -1;
     }
 
     public void consolidate() {
-        for (int i = 0; i < this.spaces.length-1; i++)
-            {
-              if (this.spaces[i] == null)
-              {
-                for (int j = i+1; j < this.spaces.length; j++)
-                {
-                    if (this.spaces[j] != null)
-                    {
+        for (int i = 0; i < this.spaces.length - 1; i++) {
+            if (this.spaces[i] == null) {
+                for (int j = i + 1; j < this.spaces.length; j++) {
+                    if (this.spaces[j] != null) {
                         this.spaces[i] = this.spaces[j];
                         this.spaces[j] = null;
                         j = this.spaces.length;
@@ -29,6 +28,15 @@ public class HorseBarn {
         }
     }
 
-
+    public String toString() {
+        String list = "";
+        for (int i = 0; i < this.spaces.length; i++) {
+            if (this.spaces[i] != null) {
+                list = list + "[" + this.spaces[i].getName() + "] ";
+            } else {
+                list = list + "[null]";
+            }
+        }
+        return list;
     }
 }
